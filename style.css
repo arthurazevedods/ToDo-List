@@ -3,22 +3,30 @@
     margin: 0;
     font-family: 'Roboto', cursive;
 }
+:root{
+    --input-focus: #2d8cf0;
+    --font-color: #323232;
+    --font-color-sub: #666;
+    --bg-color: #fff;
+    --main-color: #323232;
+}
 
 h1{
+    height: 2rem;
     text-transform: uppercase;
     display: flex;
     justify-content: center; 
-    padding: 1rem;
     background-color: brown;
     color: aliceblue;
-
+    font-size: 1.5rem;
 }
 
 .criacao{
     width: 100%;
     height: 30vh; 
     display: flex;
-    align-items: center;   
+    align-items: center;
+       
 }
 
 .adicionar{
@@ -30,7 +38,7 @@ h1{
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    border: 1px solid black;
+    border: 1px solid aquamarine;
     padding: 1rem;
     border-radius: 18px;
     gap:1rem
@@ -45,15 +53,10 @@ h1{
 .label{
     min-width: 10%;
     padding-right: auto;
-    font-family: cursive;
 }
 
 .input {
-    --input-focus: #2d8cf0;
-    --font-color: #323232;
-    --font-color-sub: #666;
-    --bg-color: #fff;
-    --main-color: #323232;
+    
     min-width: 80%;
     height: 1rem;
     border-radius: 5px;
@@ -102,9 +105,22 @@ h1{
 
 
 .colunas{
-    display: flex;
-    justify-content: space-around;
+    background-color: aquamarine;
+    width: 90%;
+    height: auto;
+    margin-left: auto;
+    margin-right:auto;
+    border: 1px solid aquamarine;
+    border-radius: 18px;
+    padding: 0 1rem 1rem 1rem;
 }
+
+.menu-action{
+    height: 3rem;
+    display: flex;
+    align-items: center;
+}
+
 
 .container{
     min-height: 70vh;
@@ -113,4 +129,36 @@ h1{
     color: azure;
     border: 1px solid mediumseagreen;
     border-radius: 18px;
+    padding: 2rem;
 }
+
+.item {
+    list-style: none;
+    padding: 0.6em 2em;
+    background: #FFFFFF;
+    border-radius: 10px;
+    margin: 0 0 1em;
+    width: 100%;
+    box-sizing: border-box;
+    align-items: center;
+    gap: 1em;
+    font-size: 20px;
+    color: #2d8cf0;
+    display: flex;
+    flex-direction: column;
+}
+
+.item strong {
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: #323232;
+    font-weight: 400;
+}
+
+.item:hover{
+    background-color: #666;
+} 
