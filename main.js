@@ -6,7 +6,7 @@ const apagar_tudo = document.getElementById("apagar_tudo")
 tarefas.forEach((elemento) => {
     criaTarefa(elemento)
 });
-
+/*Formulário*/
 form.addEventListener("submit", (evento) =>{
     evento.preventDefault()
     const tarefa = evento.target.elements["tarefa"]
@@ -28,33 +28,55 @@ form.addEventListener("submit", (evento) =>{
     descricao.value = ""
 
 })
-
+/*Apagar toda a lista */
 apagar_tudo.addEventListener("click", function(ev){
     ev.preventDefault
     lista.innerHTML = ""
     localStorage.clear()
 })
 
+/*Função para criar uma nova tarefa */
+/*A tarefa vai ter o nome, descrição e um botão */
 function criaTarefa(item){
     
     const novaTarefa = document.createElement('li')
     novaTarefa.classList.add("item")
     
 
-    const nomeTarefa = document.createElement('strong') //cria um elemento
-    nomeTarefa.innerHTML = item.tarefa  
+    const liTarefa = document.createElement('li') //cria um elemento
+    liTarefa.innerHTML = item.tarefa  
 
-    novaTarefa.append(nomeTarefa)
-    novaTarefa.innerHTML += item.descricao 
+    const liDescricao = document.createElement('span') 
+    liDescricao.innerHTML = item.descricao
+
+    
+    novaTarefa.append(liTarefa)
+    novaTarefa.append(liDescricao)
     createButton(novaTarefa)
 
     lista.append(novaTarefa)
 }
 
+
+
 function createButton(context) {
-    var button = document.createElement("input");
-    button.type = "button";
-    button.value = "Terminou";
-    //button.onclick = função;
-    context.appendChild(button);
+    var btn = document.createElement("input");
+    btn.value = "Terminou";
+    btn.type = "button";
+    btn.addEventListener('click',function(){
+        console.log(btn.parentNode.querySelectorAll('li'))
+        var task = btn.parentNode.querySelector('li')
+        var desc = btn.parentNode.querySelector('span')
+        if (task.style.textDecoration === "line-through"){
+            task.style.textDecoration = "none";
+            desc.style.textDecoration = "none";
+        }else{
+            task.style.textDecoration = "line-through";
+            desc.style.textDecoration = "line-through";
+        }
+        
+    })
+    context.appendChild(btn);
 }
+
+

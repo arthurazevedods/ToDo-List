@@ -7,17 +7,21 @@
 
 :root{
     --bg-body-color: #8ecae6;
-    --text-color-sub: #caf0f8;
-    --text-color: #fefae0;
-    --info-color: #ffb703;
-    --info-color-sub: #fb8500;
+    --color3: #fefae0;
+    --info-color: #253342;
+    --info-color-sub: #3e5954;
     --main-color: #023047;
     --main-second-color: #219ebc;
+
+    --color1:#851A50;
+    --color2: #FDB235;
+    --color3: #DFE4E8;
+    --color4: #161853;
     
 }
 
 body{
-    background-color: var(--bg-body-color);
+    background-color: var(--color3);
 }
 
 
@@ -28,8 +32,8 @@ h1{
     text-transform: uppercase;
     display: flex;
     justify-content: center; 
-    background-color: var(--info-color-sub);
-    color: var(--text-color);
+    background-color: var(--color4);
+    color: var(--color3);
     font-size: 1.5rem;
 }
 
@@ -46,12 +50,12 @@ h1{
     height: auto;
     margin-left: auto;
     margin-right:auto;
-    background-color: var(--main-color);
-    color: var(--text-color);
+    background-color: var(--color4);
+    color: var(--color3);
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    border: 1px solid var(--main-color);
+    border: 1px solid var(--color4);
     padding: 1rem;
     border-radius: 18px;
     gap:1rem
@@ -71,28 +75,29 @@ h1{
 }
 
 .input {
-    
     min-width: 80%;
     height: 1rem;
     border-radius: 5px;
-    border: 2px solid var(--main-second-color-color);
-    background-color: var(--main-color);
-    box-shadow: var(--main-second-color) 1px 1px 0px 2px;
+    border: 1px solid var(--color3);
+    background-color: var(--color4);
+    box-shadow: var(--color3) 2px 2px 0px 0.5px;
     font-size: 15px;
     font-weight: 600;
-    color: var(--text-color);
+    color: var(--color3);
     padding: 0.5rem;
     outline: none;
     
 }
 
 .input::placeholder {
-    color: var(--text-color);
+    color: var(--color3);
     opacity: 0.6;
 }
 
 .input:focus {
-    border: 1px solid var(--main-second-color);
+    border: 1px solid var(--color3);
+    box-shadow: var(--color3) 4px 4px 0px 0.5px;
+    transition: 700ms;
 }
 
 .adicionar {
@@ -100,38 +105,42 @@ h1{
     text-transform: uppercase;
     padding: 1rem 3rem;
     border-radius: 10px;
-    border: 2px solid var(--info-color);
-    background-color: var(--info-color-sub);
+    border: 2px solid var(--color3);
+    background-color: var(--color4);
     letter-spacing: 1.5px;
     font-size: 1rem;
     transition: all .3s ease;
-    box-shadow: 3px 3px var(--info-color);
-    color: hsl(0, 0%, 100%);
+    box-shadow: 3px 3px var(--color3);
+    color: var(--color3);
     
 }
 
-.adicionar:hover{
-    font-weight: 700;
-    font-size: 1.1rem;
-    font: 700ms;
-}
+
 
 .adicionar:active {
-    background-color: var(--info-color-sub);
     transform: translateY(5px);
     transition: 200ms;
     box-shadow: none;
     transform: translate(3px, 3px);
 }
+.adicionar:after{
+    height:100%;
+    width:100%;
+    padding:4px;
+    position: absolute;
+    bottom:-15px;
+    left:-4px;
+    z-index:-1;
+}
 
 
 .colunas{
-    background-color: var(--main-color);
+    background-color: var(--color4);
     width: 90%;
     height: auto;
     margin-left: auto;
     margin-right:auto;
-    border: 1px solid var(--main-color);
+    border: 1px solid var(--color4);
     border-radius: 18px;
     padding: 0 1rem 1rem 1rem;
 }
@@ -145,11 +154,11 @@ h1{
 .container{
     min-height: 70vh;
     min-width: 50vh;
-    background-color: var(--main-second-color);
-    color: azure;
-    border: 1px solid var(--main-second-color);
+    background-color: var(--color4);
+    border: 1px solid var(--color1);
     border-radius: 18px;
     padding: 0.2rem 2rem;
+    color: var(--color3);
 }
 
 .todo{
@@ -164,7 +173,7 @@ h1{
 .item {
     list-style: none;
     padding: 0.6em 2em;
-    background: var(--info-color);
+    background: var(--color1);
     border-radius: 10px;
     margin: 0 0 1em;
     width: 100%;
@@ -172,9 +181,9 @@ h1{
     align-items: center;
     gap: 1em;
     font-size: 20px;
-    color: #2d8cf0;
-    display: flex;
-    flex-direction: column;
+    color: var(--color3);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .item strong {
@@ -184,10 +193,12 @@ h1{
     justify-content: center;
     width: 40px;
     height: 40px;
-    color: #323232;
+    color: var(--color3);
     font-weight: 400;
 }
 
 .item:hover{
-    background-color: #666;
+    background-color: var(--color2);
 } 
+
+
