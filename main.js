@@ -37,27 +37,6 @@ apagar_tudo.addEventListener("click", function(ev){
 
 /*Função para criar uma nova tarefa */
 /*A tarefa vai ter o nome, descrição e um botão */
-function criaTarefaa(item){
-    
-    const novaTarefa = document.createElement('li')
-    novaTarefa.classList.add("item")
-    
-
-    const liTarefa = document.createElement('li') //cria um elemento
-    liTarefa.innerHTML = item.tarefa  
-
-    const liDescricao = document.createElement('span') 
-    liDescricao.classList.add('descricao')
-    liDescricao.innerHTML = item.descricao
-
-    
-    novaTarefa.append(liTarefa)
-    novaTarefa.append(liDescricao)
-    createButton(novaTarefa)
-
-    lista.append(novaTarefa)
-}
-
 function criaTarefa(item){
     
     const novaTarefa = document.createElement('li')
