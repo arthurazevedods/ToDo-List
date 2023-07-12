@@ -1,8 +1,7 @@
-
-*{
-    padding: 0;
-    margin: 0;
+body{
     font-family: 'Roboto', sans-serif;
+    
+    background-color: var(--color3);
 }
 
 :root{
@@ -20,29 +19,26 @@
     
 }
 
-body{
-    background-color: var(--color3);
-}
-
-
-
-h1{
-    font-family: 'Ubuntu', sans-serif;
-    height: 2rem;
+.title{
+    width: 100%;
+    height: auto;
     text-transform: uppercase;
     display: flex;
     justify-content: center; 
     background-color: var(--color4);
     color: var(--color3);
-    font-size: 1.5rem;
+    font-size: 2.5rem; 
+    font-weight: 700;
+
+    margin-bottom: 1rem;
 }
 
 .criacao{
     width: 100%;
-    height: 30vh; 
+    height: auto; 
     display: flex;
     align-items: center;
-       
+    margin-bottom: 1rem;
 }
 
 .novo_item{
@@ -58,7 +54,8 @@ h1{
     border: 1px solid var(--color4);
     padding: 1rem;
     border-radius: 18px;
-    gap:1rem
+    gap:1rem;
+    font-family:'Ubunut',sans-serif;
 }
 
 .campo{
@@ -183,10 +180,11 @@ h1{
 
 
 .container{
+    margin: 0.5rem 0rem;
     min-height: 70vh;
     min-width: 50vh;
     background-color: var(--color4);
-    border: 1px solid var(--color1);
+    border: 1px solid var(--color3);
     border-radius: 18px;
     padding: 0.2rem 2rem;
     color: var(--color3);
@@ -199,14 +197,10 @@ h1{
     text-transform: uppercase;
     padding: 1rem;
     font-size: 1.5rem;
+
 }
 
-.btn-check{
-    border:1px solid black;
-    border-radius: 50%;
-    width: 3rem;
-    height: 3rem;
-}
+
 
 .item > .descricao{
     display: none;
@@ -215,7 +209,7 @@ h1{
 .item {
     list-style: none;
     padding: 0.6em 2em;
-    background: var(--color1);
+    background: var(--color4);
     border-radius: 10px;
     margin: 0 0 1em;
     width: 100%;
@@ -224,19 +218,83 @@ h1{
     gap: 1em;
     font-size: 20px;
     color: var(--color3);
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
+    justify-content: space-between;
+    border:1px solid var(--color3);
+    box-shadow: 0rem 0.4rem var(--color3);
 }
 
-.item strong {
+.item > li  {
     border-radius: 50%;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
+    justify-content: space-around;
+    width: 80%;
+    height: 100%;
     color: var(--color3);
     font-weight: 400;
 }
 
 
+
+
+.btn-check{
+    border:1px solid var(--color3);
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px var(--color3);
+    
+    
+}
+
+.btn-check:active{
+    transform: translate(4px, 4px);
+    transition: 200ms;
+    box-shadow: none;
+}
+
+.hidden{
+    display: none;
+}
+
+.div_info{ 
+    border: 1px solid var(--color3);
+    border-radius: 50%;
+    padding: 5px 10px;
+    box-shadow: 0px 3px var(--color3);
+}
+
+.div_info:hover{
+    color: var(--color2);
+    border-color: var(--color2);
+    box-shadow: 0px 3px var(--color2)
+}
+
+.div_info:active{
+    transform: translate(2px, 4px);
+    transition: 200ms;
+    box-shadow: none;
+}
+
+.div_trash{
+    border: 1px solid var(--color3);
+    border-radius: 50%;
+    padding: 5px;
+    box-shadow: 0px 4px var(--color3);
+}
+.div_trash:hover{
+    color: var(--color2);
+    border-color: var(--color2);
+    box-shadow: 0px 3px var(--color2);
+}
+
+.div_trash:active{
+    transform: translate(4px, 4px);
+    transition: 200ms;
+    box-shadow: none;
+}
