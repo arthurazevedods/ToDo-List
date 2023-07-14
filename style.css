@@ -180,7 +180,7 @@ body{
 
 
 .container{
-    margin: 0.5rem 0rem;
+    margin: 0.5rem 0;
     min-height: 70vh;
     min-width: 50vh;
     background-color: var(--color4);
@@ -188,6 +188,7 @@ body{
     border-radius: 18px;
     padding: 0.2rem 2rem;
     color: var(--color3);
+    
 }
 
 .todo{
@@ -201,39 +202,32 @@ body{
 }
 
 
-
-.item > .descricao{
-    display: none;
-}
-
 .item {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
     list-style: none;
     padding: 0.6em 2em;
     background: var(--color4);
     border-radius: 10px;
-    margin: 0 0 1em;
+    margin: auto auto 1em;
     width: 100%;
+    height:auto;
     box-sizing: border-box;
     align-items: center;
-    gap: 1em;
-    font-size: 20px;
+    
     color: var(--color3);
-    display: flex;
-    justify-content: space-between;
     border:1px solid var(--color3);
     box-shadow: 0rem 0.4rem var(--color3);
 }
 
-.item > li  {
-    border-radius: 50%;
+
+
+div .tarefa{
+    font-weight: 600;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    width: 80%;
-    height: 100%;
-    color: var(--color3);
-    font-weight: 400;
+    justify-content: center;
+    margin: auto;
+    font-size: 20px;
 }
 
 
@@ -247,8 +241,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0px 4px var(--color3);
-    
+    box-shadow: 0 4px var(--color3);
     
 }
 
@@ -262,11 +255,28 @@ body{
     display: none;
 }
 
+
+.div_btns{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    width: auto;
+    height: auto;
+    font-size: medium;
+    display: flex;
+    justify-content: end;
+}
+
 .div_info{ 
-    border: 1px solid var(--color3);
+    border: 2px solid var(--color3);
     border-radius: 50%;
     padding: 5px 10px;
     box-shadow: 0px 3px var(--color3);
+   
+    display: flex;
+    align-items: center;
+    margin: 1em;
 }
 
 .div_info:hover{
@@ -298,3 +308,13 @@ body{
     transition: 200ms;
     box-shadow: none;
 }
+
+.container_desc{
+    background-color: #219ebc;
+    color: wheat;
+    grid-column-start:1;
+    grid-column-end:4 ;
+    height: auto;
+    
+}
+
