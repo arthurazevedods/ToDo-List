@@ -10,30 +10,25 @@ tarefas.forEach((elemento) => {
 /*Formulário*/
 form.addEventListener("submit", (evento) =>{
     evento.preventDefault();
+    sePreenchido(form);
+    
     const tarefa = evento.target.elements["tarefa"];
     const descricao = evento.target.elements["descricao"];
+
     /*Criação de um objeto */
     const tarefaAtual = {
         "tarefa": tarefa.value,
         "descricao": descricao.value
     }
-
     
     criaTarefa(tarefaAtual);
 
     tarefas.push(tarefaAtual);
     localStorage.setItem("tarefas", JSON.stringify(tarefas));
 
-    /*Funções para esvaziar os inputs depois de Adicionar Elementos*/
+    /*esvaziar os inputs*/
     tarefa.value = "";
     descricao.value = "";
-
-})
-/*Apagar toda a lista */
-apagar_tudo.addEventListener("click", function(ev){
-    ev.preventDefault;
-    lista.innerHTML = "";
-    localStorage.clear();
 })
 
 /*Função para criar uma nova tarefa */
@@ -45,20 +40,21 @@ function criaTarefa(item){
     
     
     const divItem = document.createElement('div');
-    const divTarefa = document.createElement('span'); //cria um elemento
-    divTarefa.classList.add('tarefa');
-    divTarefa.innerHTML = item.tarefa;
+    divItem.classList.add('container-tarefa');
+    const elmTarefa = document.createElement('span'); //cria um elemento
+    elmTarefa.classList.add('tarefa');
+    elmTarefa.innerHTML = item.tarefa;
 
     const container_Desc = document.createElement('div');
     container_Desc.classList.add('container_desc');
     container_Desc.classList.add('hidden');
-    const divDescricao = document.createElement('span');
-    divDescricao.classList.add('descricao');
-    //divDescricao.classList.add('hidden');
-    divDescricao.innerHTML = item.descricao;
+    const elmDescricao = document.createElement('span');
+    elmDescricao.classList.add('descricao');
+    //elmDescricao.classList.add('hidden');
+    elmDescricao.innerHTML = item.descricao;
 
-    divItem.append(divTarefa);
-    //divItem.append(divDescricao);
+    divItem.append(elmTarefa);
+    //divItem.append(elmDescricao);
 
     createCheckButton(novaTarefa);
     novaTarefa.append(divItem);
@@ -70,11 +66,22 @@ function criaTarefa(item){
     createDeleteButton(div_btns);
     novaTarefa.append(div_btns);
     
-    container_Desc.append(divDescricao);
+    container_Desc.append(elmDescricao);
     novaTarefa.append(container_Desc);
 
     lista.append(novaTarefa);
 }
+
+
+/*Apagar toda a lista */
+apagar_tudo.addEventListener("click", function(ev){
+    ev.preventDefault;
+    lista.innerHTML = "";
+    localStorage.clear();
+})
+
+
+
 
 
 function createCheckButton(context) {
@@ -87,7 +94,6 @@ function createCheckButton(context) {
     btn.classList.add('fa-check');
     btn.style.visibility = 'hidden';
     btn_check.addEventListener('click',function(){
-        console.log(btn)
         
         const elm = btn_check.nextSibling;
         
@@ -120,15 +126,20 @@ function createInfoButton(context){
     div_info.classList.add('div_info');
     btn_info.classList.add('fa-solid');
     btn_info.classList.add('fa-info');
+    
 
     div_info.append(btn_info);
 
     div_info.addEventListener('click',function(){
-        var prev = div_info.parentElement.parentElement;
-        console.log(div_info.parentElement.parentElement);
-        console.log(prev.querySelector('.container_desc'));
-        prev = prev.querySelector('.container_desc');
-        prev.classList.toggle('hidden'); //adiciona a classe se não existir e, caso contrário, remove
+        if (hasInfo(div_info)){
+            var prev = div_info.parentElement.parentElement;
+            prev = prev.querySelector('.container_desc');
+            prev.classList.toggle('hidden'); //adiciona a classe se não existir e, caso contrário, remove
+    
+        }else{
+            console.log('hasnt info');
+        }
+
     })
     
     context.appendChild(div_info);
@@ -149,9 +160,9 @@ function createDeleteButton(context){
         var tempo = 400;
         var del_task = div_trash.parentElement.parentElement;
         del_task.style.transition = `opacity ${tempo}ms ease`;
-
+    
         setTimeout(function(){
-            removeItem(tarefas, del_task.querySelector('li'));
+            removeItem(tarefas, del_task.querySelector('.container-tarefa'));
             del_task.parentElement.removeChild(del_task); //Retorna a div .item e apaga o elemento filho que é del_task
         }, tempo);
         
@@ -160,19 +171,16 @@ function createDeleteButton(context){
 
     context.appendChild(div_trash)
 }
-/*erroo */
+
 function removeItem(tasks, value) {
     const del_tarefa = value.querySelector('.tarefa').innerHTML;
 
-    console.log('tarefas: '+tarefas);
     
     tarefas.forEach((item,index)=>{
         if(item.tarefa === del_tarefa){
-            console.log('item:'+item.tarefa+'\nE o index é:'+index);
             tarefas.splice(index,1);
             localStorage.setItem('tarefas', JSON.stringify(tarefas));
         }
     })
 }
-
 

@@ -1,6 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 body{
-    font-family: 'Roboto', sans-serif;
-    
+    font-family: 'Montserrat', sans-serif;
     background-color: var(--color3);
 }
 
@@ -166,7 +167,7 @@ body{
     transition: 200ms;
 }
 
-.colunas{
+.container{
     background-color: var(--color4);
     width: 90%;
     height: auto;
@@ -179,27 +180,13 @@ body{
 
 
 
-.container{
+.container-to-do-list{
     margin: 0.5rem 0;
-    min-height: 70vh;
+    min-height: 45vh;
     min-width: 50vh;
-    background-color: var(--color4);
-    border: 1px solid var(--color3);
-    border-radius: 18px;
-    padding: 0.2rem 2rem;
-    color: var(--color3);
-    
 }
 
-.todo{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-transform: uppercase;
-    padding: 1rem;
-    font-size: 1.5rem;
 
-}
 
 
 .item {
@@ -291,6 +278,23 @@ div .tarefa{
     box-shadow: none;
 }
 
+/* The close button */
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+  
+/* When moving the mouse over the close button */
+.closebtn:hover {
+color: black;
+}
+
 .div_trash{
     border: 1px solid var(--color3);
     border-radius: 50%;
@@ -310,11 +314,17 @@ div .tarefa{
 }
 
 .container_desc{
-    background-color: #219ebc;
-    color: wheat;
+    background-color: var(--color3);
+    color: var(--color4);
     grid-column-start:1;
     grid-column-end:4 ;
     height: auto;
+    font-weight: 500;
+    font-size: large;
+    border: 2px solid var(--color2);
+    padding: 0.5em;
+    margin: 0.5em 0;
+    box-shadow: 4px 4px var(--color2);
     
 }
 
