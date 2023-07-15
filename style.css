@@ -6,18 +6,11 @@ body{
 }
 
 :root{
-    --bg-body-color: #8ecae6;
-    --color3: #fefae0;
-    --info-color: #253342;
-    --info-color-sub: #3e5954;
-    --main-color: #023047;
-    --main-second-color: #219ebc;
-
     --color1:#851A50;
     --color2: #FDB235;
     --color3: #DFE4E8;
     --color4: #161853;
-    
+    --color5: #253342;
 }
 
 .title{
@@ -193,7 +186,7 @@ body{
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     list-style: none;
-    padding: 0.6em 2em;
+    padding: 1em 1em;
     background: var(--color4);
     border-radius: 10px;
     margin: auto auto 1em;
@@ -204,7 +197,7 @@ body{
     
     color: var(--color3);
     border:1px solid var(--color3);
-    box-shadow: 0rem 0.4rem var(--color3);
+    box-shadow: 0.2rem 0.4rem var(--color3);
 }
 
 
@@ -228,8 +221,8 @@ div .tarefa{
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px var(--color3);
-    
+    box-shadow: 0.1rem 0.3rem var(--color3);
+    cursor: pointer;
 }
 
 .btn-check:active{
@@ -237,6 +230,13 @@ div .tarefa{
     transition: 200ms;
     box-shadow: none;
 }
+
+.btn-check:focus{
+    transform: translate(4px, 4px);
+    transition: 200ms;
+    box-shadow: none;
+}
+
 
 .hidden{
     display: none;
@@ -264,6 +264,7 @@ div .tarefa{
     display: flex;
     align-items: center;
     margin: 1em;
+    cursor: pointer;
 }
 
 .div_info:hover{
@@ -300,6 +301,7 @@ color: black;
     border-radius: 50%;
     padding: 5px;
     box-shadow: 0px 4px var(--color3);
+    cursor: pointer;
 }
 .div_trash:hover{
     color: var(--color2);

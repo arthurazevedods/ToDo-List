@@ -88,29 +88,51 @@ function createCheckButton(context) {
     var btn_check = document.createElement('div');
     var btn = document.createElement("i");
     
-    
     btn_check.classList.add('btn-check');
     btn.classList.add('fa-solid');
     btn.classList.add('fa-check');
     btn.style.visibility = 'hidden';
     btn_check.addEventListener('click',function(){
+        const item = btn_check.parentElement;
         
         const elm = btn_check.nextSibling;
         
         var task = elm.querySelector('span');
         
-        var desc = elm.querySelector('.descricao');
-        if (task.style.textDecoration === "line-through"){
+        if (btn.style.visibility === 'visible'){
+            
+            item.style.transform = 'translate(-2px, -4px)';
+            item.style.transition = '300ms';
+            item.style.boxShadow = '0.2rem 0.4rem var(--color3)';
+            item.style.backgroundColor = 'var(--color4)';
+
             task.style.textDecoration = "none";
-            desc.style.textDecoration = "none";
+            
+            btn_check.style.transform = 'translate(4px, 4px)';
+            btn_check.style.boxShadow = '0.1rem 0.3rem var(--color3)';
+            btn_check.style.borderColor = 'var(--color3)';
+            btn_check.style.transition = '200ms';
+
             btn.style.visibility = 'hidden';
             
         }else{
-            task.style.textDecoration = "line-through";
-            desc.style.textDecoration = "line-through";
+            item.style.transform = 'translate(2px, 4px)';
+            item.style.transition = '300ms';
+            item.style.boxShadow = '0rem 0.1rem ';
+            item.style.backgroundColor = 'var(--color5)';
+
+            task.style.textDecoration = 'line-through var(--color2)';
+            
+            btn_check.style.transform = 'translate(4px, 4px)';
+            btn_check.style.boxShadow = '0 1px';
+            btn_check.style.borderColor = 'var(--color2)';
+            btn_check.style.transition = '200ms';
+
             
             btn.style.visibility = 'visible';
             btn.style.color = '#FDB235';
+            
+            /*atualizar estado*/
             
         }
         
