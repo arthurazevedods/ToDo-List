@@ -215,32 +215,38 @@ div .tarefa{
 
 .btn-check{
     border:1px solid var(--color3);
-    border-radius: 50%;
-    width: 3rem;
+    border-radius: 10px;
+    box-shadow: 0.1rem 0.3rem var(--color3);
+    width: 6rem;
     height: 3rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0.1rem 0.3rem var(--color3);
     cursor: pointer;
+    transition: all 0.3s ease;
+    scale: 0.9;
+}
+
+.btn-check:hover{
+    border:1px solid var(--color2);
+    box-shadow: 0.1rem 0.3rem var(--color2);
+    scale:1.0;
+    
 }
 
 .btn-check:active{
     transform: translate(4px, 4px);
-    transition: 200ms;
     box-shadow: none;
 }
 
-.btn-check:focus{
-    transform: translate(4px, 4px);
-    transition: 200ms;
-    box-shadow: none;
-}
+
 
 
 .hidden{
     display: none;
 }
+
+
 
 
 .div_btns{
@@ -249,18 +255,18 @@ div .tarefa{
     align-items: center;
     
     width: auto;
-    height: auto;
+    height: 3rem;
     font-size: medium;
     display: flex;
     justify-content: end;
 }
 
 .div_info{ 
-    border: 2px solid var(--color3);
+    border: 1px solid var(--color3);
     border-radius: 50%;
     padding: 5px 10px;
     box-shadow: 0px 3px var(--color3);
-   
+    
     display: flex;
     align-items: center;
     margin: 1em;
@@ -279,22 +285,6 @@ div .tarefa{
     box-shadow: none;
 }
 
-/* The close button */
-.closebtn {
-    margin-left: 15px;
-    color: white;
-    font-weight: bold;
-    float: right;
-    font-size: 22px;
-    line-height: 20px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-  
-/* When moving the mouse over the close button */
-.closebtn:hover {
-color: black;
-}
 
 .div_trash{
     border: 1px solid var(--color3);

@@ -89,14 +89,15 @@ function createCheckButton(context) {
     var btn = document.createElement("i");
     
     btn_check.classList.add('btn-check');
+    
     btn.classList.add('fa-solid');
     btn.classList.add('fa-check');
     btn.style.visibility = 'hidden';
+
+
     btn_check.addEventListener('click',function(){
-        const item = btn_check.parentElement;
-        
+        const item = btn_check.parentElement;    
         const elm = btn_check.nextSibling;
-        
         var task = elm.querySelector('span');
         
         if (btn.style.visibility === 'visible'){
@@ -107,11 +108,6 @@ function createCheckButton(context) {
             item.style.backgroundColor = 'var(--color4)';
 
             task.style.textDecoration = "none";
-            
-            btn_check.style.transform = 'translate(4px, 4px)';
-            btn_check.style.boxShadow = '0.1rem 0.3rem var(--color3)';
-            btn_check.style.borderColor = 'var(--color3)';
-            btn_check.style.transition = '200ms';
 
             btn.style.visibility = 'hidden';
             
@@ -122,13 +118,7 @@ function createCheckButton(context) {
             item.style.backgroundColor = 'var(--color5)';
 
             task.style.textDecoration = 'line-through var(--color2)';
-            
-            btn_check.style.transform = 'translate(4px, 4px)';
-            btn_check.style.boxShadow = '0 1px';
-            btn_check.style.borderColor = 'var(--color2)';
-            btn_check.style.transition = '200ms';
-
-            
+                        
             btn.style.visibility = 'visible';
             btn.style.color = '#FDB235';
             
@@ -140,6 +130,8 @@ function createCheckButton(context) {
     btn_check.append(btn)
     context.appendChild(btn_check);
 }
+
+
 
 function createInfoButton(context){
     var div_info = document.createElement('div');
