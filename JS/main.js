@@ -18,7 +18,8 @@ form.addEventListener("submit", (evento) =>{
     /*Criação de um objeto */
     const tarefaAtual = {
         "tarefa": tarefa.value,
-        "descricao": descricao.value
+        "descricao": descricao.value,
+        "estado": "to-do",
     }
     
     criaTarefa(tarefaAtual);
@@ -56,7 +57,7 @@ function criaTarefa(item){
     divItem.append(elmTarefa);
     //divItem.append(elmDescricao);
 
-    createCheckButton(novaTarefa);
+    createCheckButton(novaTarefa,item);
     novaTarefa.append(divItem);
     
     /*DIV-BTNS */
@@ -69,7 +70,18 @@ function criaTarefa(item){
     container_Desc.append(elmDescricao);
     novaTarefa.append(container_Desc);
 
+    estadoDosEstilos(novaTarefa,item);
     lista.append(novaTarefa);
+    
+
+}
+
+function estadoDosEstilos(div,item){
+    if(item.estado === 'done'){
+        div.classList.add("item-done");
+    }else{
+        div.classList.add("item-to-do");
+    }
 }
 
 
@@ -80,11 +92,7 @@ apagar_tudo.addEventListener("click", function(ev){
     localStorage.clear();
 })
 
-
-
-
-
-function createCheckButton(context) {
+function createCheckButton(context,item) {
     var btn_check = document.createElement('div');
     var btn = document.createElement("i");
     
@@ -92,45 +100,62 @@ function createCheckButton(context) {
     
     btn.classList.add('fa-solid');
     btn.classList.add('fa-check');
-    btn.style.visibility = 'hidden';
-
-
+    if(item.estado === 'to-do'){
+        btn.style.visibility = 'hidden';
+    }
+    
     btn_check.addEventListener('click',function(){
-        const item = btn_check.parentElement;    
+        div_item = btn_check.parentElement;
         const elm = btn_check.nextSibling;
         var task = elm.querySelector('span');
-        
-        if (btn.style.visibility === 'visible'){
+        if (item.estado === 'done'){
             
-            item.style.transform = 'translate(-2px, -4px)';
-            item.style.transition = '300ms';
-            item.style.boxShadow = '0.2rem 0.4rem var(--color3)';
-            item.style.backgroundColor = 'var(--color4)';
-
+            div_item.classList.toggle('item-done');
+            div_item.classList.toggle('item-to-do');
+            
+            
             task.style.textDecoration = "none";
 
             btn.style.visibility = 'hidden';
+            toDoneOrToDo(item);
+
             
         }else{
-            item.style.transform = 'translate(2px, 4px)';
-            item.style.transition = '300ms';
-            item.style.boxShadow = '0rem 0.1rem ';
-            item.style.backgroundColor = 'var(--color5)';
+            div_item.classList.toggle('item-done');
+            div_item.classList.toggle('item-to-do');
 
             task.style.textDecoration = 'line-through var(--color2)';
                         
             btn.style.visibility = 'visible';
             btn.style.color = '#FDB235';
-            
-            /*atualizar estado*/
-            
+            toDoneOrToDo(item);
+
+        
         }
+            
         
     })
     btn_check.append(btn)
     context.appendChild(btn_check);
 }
 
+function toDoneOrToDo(item){
+    for (let i=0; i<tarefas.length;i++){
+        if(tarefas[i] === item){
+            if(item.estado === 'to-do'){
+                item.estado = 'done'
+                tarefas[i].estado = 'done';
+                localStorage.setItem('tarefas',JSON.stringify(tarefas));
+            }
+            else{
+                item.estado = 'to-do';
+                tarefas[i].estado = 'to-do';
+                localStorage.setItem('tarefas',JSON.stringify(tarefas));
+            }
+        }
+    }
+    
+}
 
 
 function createInfoButton(context){
