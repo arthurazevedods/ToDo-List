@@ -77,8 +77,10 @@ function criaTarefa(item){
 }
 
 function estadoDosEstilos(div,item){
-    if(item.estado === 'done'){
+    task = div.querySelector('.tarefa');
+        if(item.estado === 'done'){
         div.classList.add("item-done");
+        task.classList.add("line-through");
     }else{
         div.classList.add("item-to-do");
     }
@@ -101,6 +103,7 @@ function createCheckButton(context,item) {
     btn.classList.add('fa-solid');
     btn.classList.add('fa-check');
     if(item.estado === 'to-do'){
+        console.log();
         btn.style.visibility = 'hidden';
     }
     
@@ -114,7 +117,7 @@ function createCheckButton(context,item) {
             div_item.classList.toggle('item-to-do');
             
             
-            task.style.textDecoration = "none";
+            task.classList.toggle('line-through');
 
             btn.style.visibility = 'hidden';
             toDoneOrToDo(item);
@@ -124,7 +127,8 @@ function createCheckButton(context,item) {
             div_item.classList.toggle('item-done');
             div_item.classList.toggle('item-to-do');
 
-            task.style.textDecoration = 'line-through var(--color2)';
+            task.classList.toggle('line-through');
+            //task.style.textDecoration = 'line-through var(--color2)';
                         
             btn.style.visibility = 'visible';
             btn.style.color = '#FDB235';

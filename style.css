@@ -210,9 +210,11 @@ body{
     box-shadow:  0rem 0.1rem var(--color3);
     background-color:  var(--color5);
     transform: translate(4px, 4px);
-    
 }
 
+.line-through{
+    text-decoration: line-through var(--color2);
+}
 
 
 div .tarefa{
